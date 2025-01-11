@@ -6,9 +6,6 @@ export default function Register() {
     name: "",
     email: "",
     password: "",
-    confirmPassword: "",
-    address: "",
-    organization: "",
   });
 
   // Handle the role change between Citizen and Authority
@@ -18,9 +15,6 @@ export default function Register() {
       name: "",
       email: "",
       password: "",
-      confirmPassword: "",
-      address: "",
-      organization: "",
     });
   };
 
@@ -36,15 +30,11 @@ export default function Register() {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
 
     const endpoint =
       role === "Citizen"
-        ? "http://localhost:3000/register/citizen"
-        : "http://localhost:3000/register/authority";
+        ? "http://localhost:3000/api/register/citizen"
+        : "http://localhost:3000/api/register/authority";
 
     try {
       const response = await fetch(endpoint, {
@@ -52,7 +42,11 @@ export default function Register() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+        }),
       });
 
       const data = await response.json();
@@ -131,44 +125,6 @@ export default function Register() {
               className="w-full px-4 py-3 border border-[#0068ff] rounded-lg placeholder-gray-500 text-[#44546a] focus:outline-none focus:ring-2 focus:ring-[#0068ff]"
             />
           </div>
-          <div>
-            <input
-              type="password"
-              name="confirmPassword"
-              placeholder="Confirm Password"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 border border-[#0068ff] rounded-lg placeholder-gray-500 text-[#44546a] focus:outline-none focus:ring-2 focus:ring-[#0068ff]"
-            />
-          </div>
-
-          {/* Conditionally render address or organization fields */}
-          {role === "Citizen" ? (
-            <div>
-              <input
-                type="text"
-                name="address"
-                placeholder="Address"
-                value={formData.address}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-[#0068ff] rounded-lg placeholder-gray-500 text-[#44546a] focus:outline-none focus:ring-2 focus:ring-[#0068ff]"
-              />
-            </div>
-          ) : (
-            <div>
-              <input
-                type="text"
-                name="organization"
-                placeholder="Organization"
-                value={formData.organization}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-[#0068ff] rounded-lg placeholder-gray-500 text-[#44546a] focus:outline-none focus:ring-2 focus:ring-[#0068ff]"
-              />
-            </div>
-          )}
 
           <button
             type="submit"
