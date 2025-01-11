@@ -65,6 +65,10 @@ header {
 .login {
   background-color: transparent;
   color: #333;
+  border: 2px solid #fff; /* Optional: Border for the login button */
+  border-radius: 5px; /* Curved border */
+  
+  
   
 }
 
@@ -76,6 +80,10 @@ header {
 .signup {
   background-color: #0068ff;
   color: #fff;
+  border: 2px solid #0068ff; /* Optional: Border for the signup button */
+  border-radius: 5px; /* Curved border */
+ 
+  
 }
 
 .signup:hover {
