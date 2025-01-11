@@ -15,15 +15,18 @@ const Header = () => {
             zIndex: 1000,
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
         }}>
-            <div>
-                <h1>CivicHub</h1>
+            <div className='mx-4'>
+                <a href="/" style={{ textDecoration: 'none', color: 'black' }}>
+                    <h1>Civic Hub</h1>
+                </a>
             </div>
             <div className="buttons" style={{ marginLeft: 'auto' }}>
-                <button className="login">Login</button>
-                <button className="signup">Sign Up</button>
+                <a href="/login" className="login"><button>Login</button></a>
+                <a href="/register" className="signup"><button>Sign Up</button></a>
             </div>
         </header>
     );
 };
+
 document.body.style.marginTop = '60px';
 export default Header;
