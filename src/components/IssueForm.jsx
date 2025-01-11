@@ -4,7 +4,7 @@ export default function IssueForm() {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    location: ""
+    location: "",
   });
 
   const handleChange = (e) => {
@@ -17,11 +17,14 @@ export default function IssueForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("token"); // Get token from localStorage
+
     try {
-      const response = await fetch("/api/issues", {
+      const response = await fetch("http://localhost:3000/api/issues", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, // Include the token in the request header
         },
         body: JSON.stringify(formData),
       });
