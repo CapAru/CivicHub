@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { IoIosLogOut } from "react-icons/io";
 
 const Header = () => {
-    const [loggedIn, setLoggedIn] = useState(true)
+    const [loggedIn, setLoggedIn] = useState(false)
     function login(){
         setLoggedIn(true)
     }

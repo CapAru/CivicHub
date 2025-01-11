@@ -26,7 +26,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const endpoint = "http://localhost:3000/api/login";
+    const endpoint = "http://civichubbackend.onrender.com/api/login";
 
     try {
       const response = await fetch(endpoint, {

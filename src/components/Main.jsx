@@ -1,6 +1,7 @@
 import React from 'react';
 import IssueBar from '../elements/IssueBar';
 export default function Main(){
+    
     return(
         <>
             <div className='flex flex-col items-center my-3'>

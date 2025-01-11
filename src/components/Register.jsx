@@ -33,8 +33,8 @@ export default function Register() {
 
     const endpoint =
       role === "Citizen"
-        ? "http://localhost:3000/api/register/citizen"
-        : "http://localhost:3000/api/register/authority";
+        ? "http://civichubbackend.onrender.com/api/register/citizen"
+        : "http://civichubbackend.onrender.com/api/register/authority";
 
     try {
       const response = await fetch(endpoint, {
