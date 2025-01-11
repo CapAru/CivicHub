@@ -1,18 +1,27 @@
 import React from 'react';
+import { useState } from 'react'
+import { IoIosLogOut } from "react-icons/io";
 
 const Header = () => {
+    const [loggedIn, setLoggedIn] = useState(true)
+    function login(){
+        setLoggedIn(true)
+    }
+    const LogoutButton = (
+        <IoIosLogOut/>
+    )
     return (
         <header style={{ 
             display: 'flex', 
             justifyContent: 'space-between', 
             alignItems: 'center', 
             padding: '10px', 
-            position: 'sticky', 
+            position: 'sticky',
             top: 0, 
             left: 0, 
             width: '100%', 
             backgroundColor: 'white', 
-            zIndex: 1000,
+            zIndex: 50,
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
         }}>
             <div className='mx-4'>
@@ -23,10 +32,10 @@ const Header = () => {
             <div class="hamburger"> 
             <i class="fa-solid fa-bars"></i>
         </div>
-            <div className="buttons" style={{ marginLeft: 'auto' }}>
+            { loggedIn ? LogoutButton : <div className="buttons" style={{ marginLeft: 'auto' }}>
                 <a href="/login" className="login"><button>Login</button></a>
                 <a href="/register" className="signup"><button>Sign Up</button></a>
-            </div>
+            </div>}
         </header>
     );
 };
