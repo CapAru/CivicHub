@@ -69,7 +69,6 @@ export default function Register() {
           Register
         </h1>
 
-        {/* Role Toggle */}
         <div className="flex justify-center mb-6">
           <button
             onClick={() => handleRoleChange("Citizen")}
@@ -93,7 +92,6 @@ export default function Register() {
           </button>
         </div>
 
-        {/* Registration Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <input
@@ -140,35 +138,6 @@ export default function Register() {
             />
           </div>
 
-          {/* Additional Fields Based on Role */}
-          {role === "Citizen" && (
-            <div>
-              <input
-                type="text"
-                name="address"
-                placeholder="Address"
-                value={formData.address}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-[#0068ff] rounded-lg placeholder-gray-500 text-[#44546a] focus:outline-none focus:ring-2 focus:ring-[#0068ff]"
-              />
-            </div>
-          )}
-
-          {role === "Authority" && (
-            <div>
-              <input
-                type="text"
-                name="organization"
-                placeholder="Organization Name"
-                value={formData.organization}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-[#0068ff] rounded-lg placeholder-gray-500 text-[#44546a] focus:outline-none focus:ring-2 focus:ring-[#0068ff]"
-              />
-            </div>
-          )}
-
           <button
             type="submit"
             className="w-full py-3 bg-[#0068ff] text-white font-bold rounded-lg hover:bg-[#0050cc] transition duration-300"
@@ -176,12 +145,14 @@ export default function Register() {
             Register
           </button>
         </form>
-        <a
-          href="/register"
-          className="text-[#0068ff] font-medium hover:text-[#0050cc] transition duration-300"
-        >
-          Existing User? Login
-        </a>
+        <div className="mt-4 text-center">
+          <a
+            href="/register"
+            className="text-[#0068ff] font-medium hover:text-[#0050cc] transition duration-300"
+          >
+            Existing User? Login
+          </a>
+        </div>
       </div>
     </div>
   );
