@@ -7,7 +7,7 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/" element={<h1>Civic Hub</h1>} />
-        <Route path="/orifile" element={<Orifile />} />
+        <Route path="/profile" element={<Orifile />} />
       </Routes>
     </Router>
   )
