@@ -2,6 +2,7 @@ import { BiSolidUpvote } from "react-icons/bi";
 import { BiUpvote } from "react-icons/bi";
 import { CiWarning } from "react-icons/ci";
 import { CiMaximize1 } from "react-icons/ci";
+import { CiMinimize1 } from "react-icons/ci";
 import { useState } from "react";
 
 export default function IssueBar() {
@@ -43,7 +44,7 @@ export default function IssueBar() {
                     <p>Submitted by: Arunava</p>
                 </div>
                 <div className='cursor-pointer rounded-full hover:bg-[#2954c8] transition duration-200 py-1 px-2' onClick={expand}>
-                    <CiMaximize1 className='text-2xl'/>
+                    {expanded ? <CiMinimize1 className='text-2xl'/> : <CiMaximize1 className='text-2xl'/>}
                 </div>
             </div>
             <div>
