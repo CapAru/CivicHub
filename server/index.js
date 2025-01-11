@@ -13,8 +13,10 @@ const Issue = require('./models/Issue');
 const app = express();
 const port = process.env.PORT || 3000;
 
+const DB_URI = "mongodb+srv://chakrabartyarunava19:indiaisgreat@cluster0.pug7dwo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
 // Connect to MongoDB
-mongoose.connect(process.env.DB_URI)
+mongoose.connect(DB_URI)
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.error("MongoDB connection error:", err.message));
 
