@@ -1,8 +1,5 @@
 import React from 'react';
-import { BiSolidUpvote } from "react-icons/bi";
-import { BiUpvote } from "react-icons/bi";
-import { CiWarning } from "react-icons/ci";
-import { CiMaximize1 } from "react-icons/ci";
+import IssueBar from '../elements/IssueBar';
 export default function Main(){
     return(
         <>
@@ -16,19 +13,10 @@ export default function Main(){
                         <h2>Resolved Issues</h2>
                     </div>
                 </div>
-                
-                <div className='my-4 w-3/4'>
-                    <div className='flex bg-[#0068ff] items-center justify-between py-4 px-8 rounded-2xl text-white'>
-                        <div className='flex items-center'>
-                            <BiSolidUpvote className='mx-1'/>
-                            <CiWarning className='mx-1'/>
-                        </div>
-                            <div className='flex flex-col items-center'>
-                                <h3 className='font-bold text-xl'>Pothole on main street</h3>
-                                <p>Submitted by: Arunava</p>
-                            </div>
-                            <CiMaximize1 className='mx-2'/>
-                        </div>
+                <div className='flex flex-col items-center w-full my-2'>
+                    <IssueBar/>
+                    <IssueBar/>
+                    <IssueBar/>
                 </div>
             </div> 
         </>
