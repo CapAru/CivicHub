@@ -99,7 +99,7 @@ textarea::placeholder {
 }
 
 .submit-btn {
-    width: 100%;
+    width: 94%;
     padding: 10px;
     font-size: 15px;
     background: linear-gradient(45deg, #0068ff, #0451a9);
