@@ -38,7 +38,7 @@ export default function IssueBar() {
     )
     return(
         <div className='my-2 w-3/4'>
-            <div className='flex bg-[#0068ff] items-center justify-between py-4 px-5 rounded-2xl text-white'>
+            <div className='flex bg-[#0068ff] items-center justify-between py-4 px-5 rounded-2xl text-white cursor-pointer' onClick={expand}>
                 <div className='flex items-center'>
                     <div className="cursor-pointer flex items-center mr-2 py-1 px-2 rounded-full hover:bg-[#2954c8] transition duration-200" onClick={changeUpvote}>
                         {upvoted ? <BiSolidUpvote className='mr-1 text-2xl'/> : <BiUpvote className='mr-1 text-2xl'/>}
