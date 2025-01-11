@@ -15,7 +15,9 @@ const Header = () => {
             zIndex: 1000,
             boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
         }}>
-         
+            <div>
+                <h1>CivicHub</h1>
+            </div>
             <div className="buttons" style={{ marginLeft: 'auto' }}>
                 <button className="login">Login</button>
                 <button className="signup">Sign Up</button>
