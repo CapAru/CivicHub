@@ -1,13 +1,12 @@
 import React from "react";
-import Profile from "./Profile";
+import Main from "./components/Main";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<h1>Civic Hub</h1>} />
-        <Route path="/profile" element={<Orifile />} />
+        <Route path="/" element={<Main/>}/>
       </Routes>
     </Router>
   );
