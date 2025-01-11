@@ -18,7 +18,7 @@ dae5ef
 
 
 
- body {
+body {
   margin: 0;
 }
 
@@ -65,7 +65,11 @@ header {
 .login {
   background-color: transparent;
   color: #333;
-  border: 2px solid #333;
+  border: 2px solid #fff; /* Optional: Border for the login button */
+  border-radius: 5px; /* Curved border */
+  
+  
+  
 }
 
 .login:hover {
@@ -74,11 +78,187 @@ header {
 }
 
 .signup {
-  background-color: transparent;
-  color: #333;
+  background-color: #0068ff;
+  color: #fff;
+  border: 2px solid #0068ff; /* Optional: Border for the signup button */
+  border-radius: 5px; /* Curved border */
+ 
+  
 }
 
 .signup:hover {
-  background-color: #44546a;
+  background-color: #344CB7;
   color: #fff;
 }
+
+
+
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  width: 35rem;
+  text-align: center;
+}
+
+.form-container h1 {
+  font-size: 22px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-bottom: 20px;
+  color: #0068ff;
+}
+
+.form-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.form-section div {
+  width: 45%;
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 2px dashed #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.4s;
+}
+
+.form-section .upload-btn {
+  border: 2px solid #ccc;
+}
+
+.form-section div:hover {
+  border-color: #0068ff;
+}
+
+.form-section .upload-btn i {
+  margin-top: 20%;
+  margin-bottom: 10%;
+  width: 100%;
+  font-size: 4rem;
+  color: #44546a;
+  opacity: 0.8;
+  max-height: 80px;
+  object-fit: cover;
+}
+
+.form-section span {
+  margin-top: 25px;
+  font-size: 16px;
+  color: #333;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+input, textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input, textarea {
+  align-items: center;
+}
+
+input:focus, textarea:focus {
+  border-color: #0068ff;
+  outline: none;
+}
+
+input:hover, textarea:hover {
+  border-color: #0068ff;
+  transition: border-color 0.3s;
+}
+
+input::placeholder,
+textarea::placeholder {
+  text-align: center;
+}
+
+.submit-btn {
+  width: 94%;
+  padding: 10px;
+  font-size: 15px;
+  background: linear-gradient(45deg, #0068ff, #0451a9);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(60deg, #0451a9, #0068ff);
+}
+
+.map-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4; /* Optional: Set background color */
+}
+
+.form-container {
+  text-align: center;
+  padding: 20px;
+  background-color: white; /* Optional: Add a background color to the form */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for the form */
+  border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+.map-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+input, textarea {
+  align-items: center;
+}
+
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4; /* Optional: Set background color */
+}
+
+.form-container {
+  text-align: center;
+  padding: 20px;
+  background-color: white; /* Optional: Add a background color to the form */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for the form */
+  border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+.input-container, .textarea-container, .button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.map-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+

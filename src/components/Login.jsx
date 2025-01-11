@@ -26,7 +26,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const endpoint = "http://localhost:3000/api/login";
+    const endpoint = "http://civichubbackend.onrender.com/api/login";
 
     try {
       const response = await fetch(endpoint, {
@@ -51,7 +51,7 @@ export default function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#dae5ef]">
+    <div className="flex items-center justify-center m-16 bg-[#dae5ef]">
       <div className="bg-white shadow-md rounded-lg p-8 max-w-md w-full">
         <h1 className="text-2xl font-bold text-[#44546a] mb-6 text-center">
           Login

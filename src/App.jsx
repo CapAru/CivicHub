@@ -5,7 +5,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import IssueForm from "./components/IssueForm";
 import Header from "./elements/Header.jsx";
-
+import SubmitIssue from "./elements/Submission.jsx";
 export default function App() {
   return (
     <>
@@ -16,6 +16,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/issue" element={<IssueForm />} />
+        <Route path="/submit" element={<SubmitIssue />} />
       </Routes>
     </Router>
     </>
