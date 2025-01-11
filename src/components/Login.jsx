@@ -26,10 +26,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const endpoint =
-      role === "Citizen"
-        ? "http://localhost:3000/api/login/citizen"
-        : "http://localhost:3000/api/login/authority";
+    const endpoint = "http://localhost:3000/login";
 
     try {
       const response = await fetch(endpoint, {

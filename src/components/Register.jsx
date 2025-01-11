@@ -43,8 +43,8 @@ export default function Register() {
 
     const endpoint =
       role === "Citizen"
-        ? "http://localhost:3000/api/register/citizen"
-        : "http://localhost:3000/api/register/authority";
+        ? "http://localhost:3000/register/citizen"
+        : "http://localhost:3000/register/authority";
 
     try {
       const response = await fetch(endpoint, {
