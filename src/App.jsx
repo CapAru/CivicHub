@@ -3,9 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Main from "./components/Main";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Header from "./elements/Header.jsx";
 
 export default function App() {
   return (
+    <>
+      <Header />
     <Router>
       <Routes>
         <Route path="/" element={<Main />} />
@@ -13,6 +16,6 @@ export default function App() {
         <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
+    </>
   );
 }
-
