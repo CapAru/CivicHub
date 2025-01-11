@@ -7,7 +7,7 @@ const Header = () => {
             justifyContent: 'space-between', 
             alignItems: 'center', 
             padding: '10px', 
-            position: 'fixed', 
+            position: 'sticky', 
             top: 0, 
             left: 0, 
             width: '100%', 
@@ -20,6 +20,9 @@ const Header = () => {
                     <h1>Civic Hub</h1>
                 </a>
             </div>
+            <div class="hamburger"> 
+            <i class="fa-solid fa-bars"></i>
+        </div>
             <div className="buttons" style={{ marginLeft: 'auto' }}>
                 <a href="/login" className="login"><button>Login</button></a>
                 <a href="/register" className="signup"><button>Sign Up</button></a>
@@ -28,5 +31,5 @@ const Header = () => {
     );
 };
 
-document.body.style.marginTop = '60px';
+//document.body.style.marginTop = '60px';
 export default Header;
