@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function Register() {
-  const [role, setRole] = useState("Citizen"); // "Citizen" or "Authority"
+  const [role, setRole] = useState("Citizen");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,6 +11,7 @@ export default function Register() {
     organization: "",
   });
 
+  // Handle the role change between Citizen and Authority
   const handleRoleChange = (newRole) => {
     setRole(newRole);
     setFormData({
@@ -23,6 +24,7 @@ export default function Register() {
     });
   };
 
+  // Handle form field change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -31,6 +33,7 @@ export default function Register() {
     });
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
@@ -39,7 +42,9 @@ export default function Register() {
     }
 
     const endpoint =
-      role === "Citizen" ? "/api/citizen/register" : "/api/authority/register";
+      role === "Citizen"
+        ? "http://localhost:3000/api/register/citizen"
+        : "http://localhost:3000/api/register/authority";
 
     try {
       const response = await fetch(endpoint, {
@@ -138,6 +143,33 @@ export default function Register() {
             />
           </div>
 
+          {/* Conditionally render address or organization fields */}
+          {role === "Citizen" ? (
+            <div>
+              <input
+                type="text"
+                name="address"
+                placeholder="Address"
+                value={formData.address}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-3 border border-[#0068ff] rounded-lg placeholder-gray-500 text-[#44546a] focus:outline-none focus:ring-2 focus:ring-[#0068ff]"
+              />
+            </div>
+          ) : (
+            <div>
+              <input
+                type="text"
+                name="organization"
+                placeholder="Organization"
+                value={formData.organization}
+                onChange={handleChange}
+                required
+                className="w-full px-4 py-3 border border-[#0068ff] rounded-lg placeholder-gray-500 text-[#44546a] focus:outline-none focus:ring-2 focus:ring-[#0068ff]"
+              />
+            </div>
+          )}
+
           <button
             type="submit"
             className="w-full py-3 bg-[#0068ff] text-white font-bold rounded-lg hover:bg-[#0050cc] transition duration-300"
@@ -147,7 +179,7 @@ export default function Register() {
         </form>
         <div className="mt-4 text-center">
           <a
-            href="/register"
+            href="/login"
             className="text-[#0068ff] font-medium hover:text-[#0050cc] transition duration-300"
           >
             Existing User? Login
