@@ -4,8 +4,7 @@ export default function IssueForm() {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    location: "",
-    assignedTo: "", 
+    location: ""
   });
 
   const handleChange = (e) => {
@@ -75,16 +74,6 @@ export default function IssueForm() {
               value={formData.location}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 border border-[#0068ff] rounded-lg placeholder-gray-500 text-[#44546a] focus:outline-none focus:ring-2 focus:ring-[#0068ff]"
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              name="assignedTo"
-              placeholder="Assigned To (Authority ID)"
-              value={formData.assignedTo}
-              onChange={handleChange}
               className="w-full px-4 py-3 border border-[#0068ff] rounded-lg placeholder-gray-500 text-[#44546a] focus:outline-none focus:ring-2 focus:ring-[#0068ff]"
             />
           </div>
