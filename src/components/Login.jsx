@@ -1,10 +1,19 @@
 import React, { useState } from "react";
 
 export default function Login() {
+  const [role, setRole] = useState("Citizen");
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  const handleRoleChange = (newRole) => {
+    setRole(newRole);
+    setFormData({
+      email: "",
+      password: "",
+    });
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,8 +25,11 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const endpoint = "http://localhost:3000/login";
+
     try {
-      const response = await fetch("/api/auth/login", {
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -44,6 +56,30 @@ export default function Login() {
         <h1 className="text-2xl font-bold text-[#44546a] mb-6 text-center">
           Login
         </h1>
+
+        <div className="flex justify-center mb-6">
+          <button
+            onClick={() => handleRoleChange("Citizen")}
+            className={`px-4 py-2 rounded-l-lg ${
+              role === "Citizen"
+                ? "bg-[#0068ff] text-white"
+                : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+            }`}
+          >
+            Citizen
+          </button>
+          <button
+            onClick={() => handleRoleChange("Authority")}
+            className={`px-4 py-2 rounded-r-lg ${
+              role === "Authority"
+                ? "bg-[#0068ff] text-white"
+                : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+            }`}
+          >
+            Authority
+          </button>
+        </div>
+
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <input

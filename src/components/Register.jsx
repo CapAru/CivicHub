@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function Register() {
-  const [role, setRole] = useState("Citizen"); // "Citizen" or "Authority"
+  const [role, setRole] = useState("Citizen");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,6 +11,7 @@ export default function Register() {
     organization: "",
   });
 
+  // Handle the role change between Citizen and Authority
   const handleRoleChange = (newRole) => {
     setRole(newRole);
     setFormData({
@@ -23,6 +24,7 @@ export default function Register() {
     });
   };
 
+  // Handle form field change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -31,6 +33,7 @@ export default function Register() {
     });
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
@@ -39,7 +42,9 @@ export default function Register() {
     }
 
     const endpoint =
-      role === "Citizen" ? "/api/citizen/register" : "/api/authority/register";
+      role === "Citizen"
+        ? "http://localhost:3000/register/citizen"
+        : "http://localhost:3000/register/authority";
 
     try {
       const response = await fetch(endpoint, {
@@ -69,7 +74,6 @@ export default function Register() {
           Register
         </h1>
 
-        {/* Role Toggle */}
         <div className="flex justify-center mb-6">
           <button
             onClick={() => handleRoleChange("Citizen")}
@@ -93,7 +97,6 @@ export default function Register() {
           </button>
         </div>
 
-        {/* Registration Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <input
@@ -140,8 +143,8 @@ export default function Register() {
             />
           </div>
 
-          {/* Additional Fields Based on Role */}
-          {role === "Citizen" && (
+          {/* Conditionally render address or organization fields */}
+          {role === "Citizen" ? (
             <div>
               <input
                 type="text"
@@ -153,14 +156,12 @@ export default function Register() {
                 className="w-full px-4 py-3 border border-[#0068ff] rounded-lg placeholder-gray-500 text-[#44546a] focus:outline-none focus:ring-2 focus:ring-[#0068ff]"
               />
             </div>
-          )}
-
-          {role === "Authority" && (
+          ) : (
             <div>
               <input
                 type="text"
                 name="organization"
-                placeholder="Organization Name"
+                placeholder="Organization"
                 value={formData.organization}
                 onChange={handleChange}
                 required
@@ -176,12 +177,14 @@ export default function Register() {
             Register
           </button>
         </form>
-        <a
-          href="/register"
-          className="text-[#0068ff] font-medium hover:text-[#0050cc] transition duration-300"
-        >
-          Existing User? Login
-        </a>
+        <div className="mt-4 text-center">
+          <a
+            href="/login"
+            className="text-[#0068ff] font-medium hover:text-[#0050cc] transition duration-300"
+          >
+            Existing User? Login
+          </a>
+        </div>
       </div>
     </div>
   );
