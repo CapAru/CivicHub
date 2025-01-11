@@ -39,41 +39,49 @@ export default function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="flex items-center justify-center min-h-screen bg-[#dae5ef]">
       <div className="bg-white shadow-md rounded-lg p-8 max-w-md w-full">
-        <h1 className="text-2xl font-bold text-textPrimary mb-6 text-center">
+        <h1 className="text-2xl font-bold text-[#44546a] mb-6 text-center">
           Login
         </h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <input
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder="Enter your email"
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full px-4 py-3 border border-[#0068ff] rounded-lg placeholder-gray-500 text-[#44546a] focus:outline-none focus:ring-2 focus:ring-[#0068ff]"
             />
           </div>
           <div>
             <input
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="Enter your password"
               value={formData.password}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full px-4 py-3 border border-[#0068ff] rounded-lg placeholder-gray-500 text-[#44546a] focus:outline-none focus:ring-2 focus:ring-[#0068ff]"
             />
           </div>
           <button
             type="submit"
-            className="w-full py-2 bg-primary text-white font-bold rounded-lg hover:bg-blue-700 transition duration-300"
+            className="w-full py-3 bg-[#0068ff] text-white font-bold rounded-lg hover:bg-[#0050cc] transition duration-300"
           >
             Login
           </button>
         </form>
+        <div className="mt-4 text-center">
+          <a
+            href="/register"
+            className="text-[#0068ff] font-medium hover:text-[#0050cc] transition duration-300"
+          >
+            New User? Register
+          </a>
+        </div>
       </div>
     </div>
   );
