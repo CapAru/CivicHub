@@ -4,9 +4,12 @@ import Main from "./components/Main";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import IssueForm from "./components/IssueForm";
+import Header from "./elements/Header.jsx";
 
 export default function App() {
   return (
+    <>
+      <Header />
     <Router>
       <Routes>
         <Route path="/" element={<Main />} />
@@ -15,5 +18,6 @@ export default function App() {
         <Route path="/issue" element={<IssueForm />} />
       </Routes>
     </Router>
+    </>
   );
 }
