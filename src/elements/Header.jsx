@@ -8,12 +8,12 @@ const Header = () => {
         setLoggedIn(true)
     }
     const LogoutButton = (
-        <>
-            <a href="/issue" className="login"><button>Login</button></a>  
+        <div className='flex items-center mx-4'>
+            <a href="/issue" className="mr-16"><button>Submit Issue</button></a>  
             <div className="logout" o style={{ cursor: 'pointer' }}>
-                <IoIosLogOut className='text-2xl mr-4 text-center'/>
+                <IoIosLogOut className='text-2xl text-center'/>
             </div>
-        </>
+        </div>
     )
     return (
         <header style={{ 
