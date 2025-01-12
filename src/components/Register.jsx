@@ -18,7 +18,6 @@ export default function Register() {
     });
   };
 
-  // Handle form field change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -27,14 +26,13 @@ export default function Register() {
     });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const endpoint =
       role === "Citizen"
-        ? "http://civichubbackend.onrender.com/api/register/citizen"
-        : "http://civichubbackend.onrender.com/api/register/authority";
+        ? "https://civichubbackend.onrender.com/api/register/citizen"
+        : "https://civichubbackend.onrender.com/api/register/authority";
 
     try {
       const response = await fetch(endpoint, {
