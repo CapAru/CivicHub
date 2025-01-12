@@ -4,7 +4,7 @@ import { faUpload } from '@fortawesome/free-solid-svg-icons';
 
 const SubmitIssue = () => {
     return (
-        <div className="page-container">
+        <div className="flex justify-center mt-10">
             <div className="form-container">
                 <h1>SUBMIT A NEW ISSUE</h1>
                 <div className="form-section" style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginBottom: '20px' }}>

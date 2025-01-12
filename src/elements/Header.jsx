@@ -9,7 +9,7 @@ const Header = () => {
     }
     const LogoutButton = (
         <div className='flex items-center mx-4'>
-            <a href="/issue" className="mr-16"><button>Submit Issue</button></a>  
+            <a href="/issue" className="mr-12 bg-slate-100 py-2 px-4 rounded-"><button>Submit Issue</button></a>  
             <div className="logout" o style={{ cursor: 'pointer' }}>
                 <IoIosLogOut className='text-2xl text-center'/>
             </div>
