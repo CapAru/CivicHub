@@ -15,8 +15,8 @@ export default function App() {
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/issue" element={<IssueForm />} />
-        <Route path="/submit" element={<SubmitIssue />} />
+        <Route path="/submit" element={<IssueForm />} />
+        <Route path="/issue" element={<SubmitIssue />} />
       </Routes>
     </Router>
     </>
