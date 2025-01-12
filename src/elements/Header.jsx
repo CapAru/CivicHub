@@ -3,12 +3,14 @@ import { useState } from 'react'
 import { IoIosLogOut } from "react-icons/io";
 
 const Header = () => {
-    const [loggedIn, setLoggedIn] = useState(false)
+    const [loggedIn, setLoggedIn] = useState(true)
     function login(){
         setLoggedIn(true)
     }
     const LogoutButton = (
-        <IoIosLogOut/>
+        <div className="logout" o style={{ cursor: 'pointer' }}>
+            <IoIosLogOut className='text-2xl mr-4 text-center'/>
+        </div>
     )
     return (
         <header style={{ 
