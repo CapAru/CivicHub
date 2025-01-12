@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
-export default function Login() {
+export default function Register() {
   const [role, setRole] = useState("Citizen");
   const [formData, setFormData] = useState({
+    name: "",
     email: "",
     password: "",
   });
 
   const navigate = useNavigate(); 
-
+  
   const handleRoleChange = (newRole) => {
     setRole(newRole);
     setFormData({
+      name: "",
       email: "",
       password: "",
     });
@@ -29,7 +31,10 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const endpoint = "https://civichubbackend.onrender.com/api/login";
+    const endpoint =
+      role === "Citizen"
+        ? "https://civichubbackend.onrender.com/api/register/citizen"
+        : "https://civichubbackend.onrender.com/api/register/authority";
 
     try {
       const response = await fetch(endpoint, {
@@ -37,31 +42,30 @@ export default function Login() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+        }),
       });
 
       const data = await response.json();
       if (response.ok) {
-        alert("Login successful");
-        console.log("Token:", data.token);
-
-        localStorage.setItem("authToken", data.token);
-
-        navigate("/"); 
+        navigate("/");
       } else {
-        alert(`Login failed: ${data.error}`);
+        alert(`Registration failed: ${data.error}`);
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred while logging in.");
+      alert({ error });
     }
   };
 
   return (
-    <div className="flex items-center justify-center m-16 bg-[#dae5ef]">
+    <div className="flex items-center justify-center bg-[#dae5ef] m-16">
       <div className="bg-white shadow-md rounded-lg p-8 max-w-md w-full">
         <h1 className="text-2xl font-bold text-[#44546a] mb-6 text-center">
-          Login
+          Register
         </h1>
 
         <div className="flex justify-center mb-6">
@@ -87,12 +91,23 @@ export default function Login() {
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 border border-[#0068ff] rounded-lg placeholder-gray-500 text-[#44546a] focus:outline-none focus:ring-2 focus:ring-[#0068ff]"
+            />
+          </div>
           <div>
             <input
               type="email"
               name="email"
-              placeholder="Enter your email"
+              placeholder="Email"
               value={formData.email}
               onChange={handleChange}
               required
@@ -103,26 +118,27 @@ export default function Login() {
             <input
               type="password"
               name="password"
-              placeholder="Enter your password"
+              placeholder="Password"
               value={formData.password}
               onChange={handleChange}
               required
               className="w-full px-4 py-3 border border-[#0068ff] rounded-lg placeholder-gray-500 text-[#44546a] focus:outline-none focus:ring-2 focus:ring-[#0068ff]"
             />
           </div>
+
           <button
             type="submit"
             className="w-full py-3 bg-[#0068ff] text-white font-bold rounded-lg hover:bg-[#0050cc] transition duration-300"
           >
-            Login
+            Register
           </button>
         </form>
         <div className="mt-4 text-center">
           <a
-            href="/register"
+            href="/login"
             className="text-[#0068ff] font-medium hover:text-[#0050cc] transition duration-300"
           >
-            New User? Register
+            Existing User? Login
           </a>
         </div>
       </div>
