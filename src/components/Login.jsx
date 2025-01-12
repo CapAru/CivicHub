@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 
 export default function Login() {
   const [role, setRole] = useState("Citizen");
@@ -6,6 +7,8 @@ export default function Login() {
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate(); 
 
   const handleRoleChange = (newRole) => {
     setRole(newRole);
@@ -41,6 +44,10 @@ export default function Login() {
       if (response.ok) {
         alert("Login successful");
         console.log("Token:", data.token);
+
+        localStorage.setItem("authToken", data.token);
+
+        navigate("/"); 
       } else {
         alert(`Login failed: ${data.error}`);
       }

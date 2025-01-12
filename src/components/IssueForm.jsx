@@ -20,7 +20,7 @@ export default function IssueForm() {
     const token = localStorage.getItem("token"); // Get token from localStorage
 
     try {
-      const response = await fetch("http://localhost:3000/api/issues", {
+      const response = await fetch("https://civichubbackend.onrender.com/api/issues", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
