@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from 'react';
+import { useState } from 'react'
 import { IoIosLogOut } from "react-icons/io";
-import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-    const [loggedIn, setLoggedIn] = useState(false)
+    const [loggedIn, setLoggedIn] = useState(true)
     function login(){
         setLoggedIn(true)
     }
@@ -38,9 +38,13 @@ const Header = () => {
             <div class="hamburger"> 
             <i class="fa-solid fa-bars"></i>
         </div>
-      )}
-    </header>
-  );
+            { loggedIn ? LogoutButton : <div className="buttons" style={{ marginLeft: 'auto' }}>
+                <a href="/login" className="login"><button>Login</button></a>
+                <a href="/register" className="signup"><button>Sign Up</button></a>
+            </div>}
+        </header>
+    );
 };
 
+//document.body.style.marginTop = '60px';
 export default Header;
