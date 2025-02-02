@@ -3,6 +3,7 @@ import { IoIosLogOut } from "react-icons/io";
 
 const Header = () => {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   const [loggedIn, setLoggedIn] = useState(false); // Default to not logged in
 
   // Check for login session token on component mount
@@ -13,6 +14,8 @@ const Header = () => {
     } else {
       setLoggedIn(false);
 =======
+=======
+>>>>>>> Stashed changes
     const [loggedIn, setLoggedIn] = useState(false)
     function login(){
         setLoggedIn(true)
